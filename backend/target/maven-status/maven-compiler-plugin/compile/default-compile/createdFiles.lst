@@ -1,0 +1,7 @@
+com\example\crud\model\Task.class
+com\example\crud\repository\TaskRepository.class
+com\example\crud\CrudApplication.class
+com\example\crud\controller\TaskController.class
+com\example\crud\config\WebConfig.class
+com\example\crud\config\CorsConfig.class
+com\example\crud\service\TaskService.class

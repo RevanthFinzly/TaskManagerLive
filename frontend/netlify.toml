@@ -1,0 +1,88 @@
+# Full Stack CRUD Application
+
+This repository contains a full-stack CRUD (Create, Read, Update, Delete) application with:
+- Spring Boot backend API with PostgreSQL database
+- Angular frontend
+- Deployment configurations for Netlify (frontend) and Render (backend)
+
+## Project Structure
+
+```
+/
+├── backend/        # Spring Boot application
+│   ├── src/        # Java source code
+│   ├── pom.xml     # Maven dependencies
+│   └── ...
+│
+└── frontend/       # Angular application
+    ├── src/        # Angular source code
+    ├── package.json # npm dependencies
+    └── ...
+```
+
+## Features
+- Task management with CRUD operations
+- Filtering tasks by status (completed, incomplete)
+- Search functionality for tasks
+- Responsive design using Bootstrap
+
+## Technologies
+- **Backend**: Spring Boot, Spring Data JPA, PostgreSQL
+- **Frontend**: Angular 16, Bootstrap 5
+- **Deployment**: Render (Backend), Netlify (Frontend)
+
+## Running Locally
+
+### Backend
+1. Create a PostgreSQL database named `crud_app`
+2. Navigate to the backend folder: `cd backend`
+3. Update database credentials in `src/main/resources/application.properties` if needed
+4. Run the application: `mvn spring-boot:run`
+5. The API will be accessible at `http://localhost:8080/api`
+
+### Frontend
+1. Navigate to the frontend folder: `cd frontend`
+2. Install dependencies: `npm install`
+3. Run the development server: `ng serve`
+4. The application will be accessible at `http://localhost:4200`
+
+## Deployment Instructions
+
+### Backend (Spring Boot) on Render
+1. Create a new Web Service in your Render dashboard
+2. Connect your GitHub repository
+3. Configure the service:
+   - **Name**: your-app-name-backend
+   - **Environment**: Java
+   - **Build Command**: `./mvnw clean package -DskipTests`
+   - **Start Command**: `java -jar target/crud-0.0.1-SNAPSHOT.jar`
+   - **Root Directory**: backend
+4. Add the following environment variables:
+   - `SPRING_DATASOURCE_URL`: Your PostgreSQL database URL from Render
+   - `SPRING_DATASOURCE_USERNAME`: Database username
+   - `SPRING_DATASOURCE_PASSWORD`: Database password
+   - `SPRING_PROFILES_ACTIVE`: prod
+   - `PORT`: 8080
+5. Click "Create Web Service"
+
+### Frontend (Angular) on Netlify
+1. Create a new site in your Netlify dashboard
+2. Connect your GitHub repository
+3. Configure the build settings:
+   - **Base directory**: frontend
+   - **Build command**: `npm run build`
+   - **Publish directory**: frontend/dist/crud-app-frontend
+4. Add an environment variable:
+   - `ANGULAR_APP_API_URL`: Your backend API URL (e.g., https://your-app-name-backend.onrender.com/api)
+5. Click "Deploy site"
+6. Go to "Site settings" > "Domain management" to configure a custom domain if desired
+
+## Updating API URL for Production
+Before deploying to production, update the API URL in `frontend/src/environments/environment.prod.ts` to point to your deployed backend URL.[build]
+  publish = "dist/crud-app-frontend"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

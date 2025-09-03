@@ -1,0 +1,12 @@
+.task-item {
+  transition: background-color 0.3s;
+}
+
+.task-completed {
+  text-decoration: line-through;
+  color: #6c757d;
+}
+
+.btn-action {
+  margin-left: 5px;
+}
