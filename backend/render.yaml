@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: crud-app-backend
+    rootDir: backend
+    env: docker
+    plan: free
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: JDBC_DATABASE_URL
+        sync: false   # Fill this in Render dashboard
+      - key: JDBC_DATABASE_USERNAME
+        sync: false
+      - key: JDBC_DATABASE_PASSWORD
+        sync: false
+      - key: PORT
+        value: 8080
