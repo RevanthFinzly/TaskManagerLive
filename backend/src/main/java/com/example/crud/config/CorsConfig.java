@@ -18,7 +18,8 @@ public class CorsConfig {
         corsConfiguration.setAllowedOrigins(List.of(
             "http://localhost:4200", 
             "http://localhost:3000",
-            "https://crud-app-frontend.netlify.app" // Replace with your actual Netlify domain
+            "https://68bb8478a02580cc19a7c7f7--golden-licorice-3d3be3.netlify.app",
+            "https://golden-licorice-3d3be3.netlify.app"
         ));
         corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         corsConfiguration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With"));
