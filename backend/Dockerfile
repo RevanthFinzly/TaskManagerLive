@@ -1,6 +1,5 @@
 FROM maven:3.8.5-openjdk:17 AS build
 
-COPY ..
 RUN mvn clean package -DskipTests
 
 # Use OpenJDK 17 as the base image
